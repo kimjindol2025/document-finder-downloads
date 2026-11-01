@@ -1,5 +1,8 @@
 "use strict";
 const $ = selector => document.querySelector(selector);
+if (location.pathname.startsWith("/document-finder-downloads/document-finder/")) {
+  $("#extension-download").href = "./document-finder-extension-dev.zip";
+}
 $("#connect").addEventListener("click", () => {
   const runtime = globalThis.chrome?.runtime;
   if (!runtime?.sendMessage) { $("#status").textContent = "확장을 먼저 설치하고 Chrome 또는 Edge에서 접속해 주세요."; return; }
